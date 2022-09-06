@@ -11,7 +11,7 @@ jobs:
        - name: Checkout
          uses: actions/checkout@v3
        - name: Download
-         run: wget 'https://www.google.com/maps/d/u/0/kml?mid=10YK14-QB25penu8jeS4hBVarzGKZsVgj&forcekml=1' -O ./data/kml/`date `date +"%Y.%m.%d-%H:%M:%S"`
+         run: wget 'https://www.google.com/maps/d/u/0/kml?mid=10YK14-QB25penu8jeS4hBVarzGKZsVgj&forcekml=1' -O ./data/kml/`date +"%Y.%m.%d-%H:%M:%S"`
        - name: Commit results back
          uses: stefanzweifel/git-auto-commit-action@v4
          with:
