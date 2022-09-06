@@ -1,4 +1,4 @@
-nlame: Scraper
+name: Scraper
 on:
   workflow_dispatch:
   schedule:
