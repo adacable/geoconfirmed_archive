@@ -1,9 +1,8 @@
 name: Scraper
 on:
-  workflow_dispatch:
   schedule:
-    # * is a special character in YAML so you have to quote this string
     - cron:  '0 * * * *'
+  workflow_dispatch:
 jobs:
   scrape-geoconfirmed-map:
     runs-on: ubuntu-latest
