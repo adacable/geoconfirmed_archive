@@ -15,6 +15,5 @@ jobs:
        - name: Download-isw
          run: wget 'https://www.google.com/maps/d/u/0/kml?mid=10YK14-QB25penu8jeS4hBVarzGKZsVgj&forcekml=1' -O ./data/kml/isw-`date +"%Y.%m.%d-%H:%M:%S"`
        - name: Commit results back
-         uses: stefanzweifel/git-auto-commit-action@v4
          with:
            commit_message: 'Scraped kml'
