@@ -12,16 +12,19 @@ jobs:
   scrape-geoconfirmed-map:
     runs-on: ubuntu-latest
     needs: checkout-code
+    steps:
        - name: Download
          run: wget 'https://services5.arcgis.com/SaBe5HMtmnbqSWlu/ArcGIS/rest/services/VIEW_RussiaCoTinUkraine_V3/FeatureServer/49/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryPolygon&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=' -O ./data/kml/`date +"%Y.%m.%d-%H:%M:%S"`
   scrape-isw-map:
-    needs: checkout-code
     runs-on: ubuntu-latest
+    needs: checkout-code
+    steps:
        - name: Download
          run: wget 'https://www.google.com/maps/d/u/0/kml?mid=10YK14-QB25penu8jeS4hBVarzGKZsVgj&forcekml=1' -O ./data/kml/`date +"%Y.%m.%d-%H:%M:%S"`
   save-data:
     runs-on: ubuntu-latest
-    needs: checkout-code
+    needs: [scrape-isw-map,scrape-geoconfirmed-map]
+    steps:
        - name: Commit results back
          uses: stefanzweifel/git-auto-commit-action@v4
          with:
