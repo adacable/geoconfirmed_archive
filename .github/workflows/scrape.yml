@@ -9,10 +9,10 @@ jobs:
     steps:
        - name: Checkout
          uses: actions/checkout@v3
-       - name: Download-geoconfirmed
-         run: wget 'https://services5.arcgis.com/SaBe5HMtmnbqSWlu/ArcGIS/rest/services/VIEW_RussiaCoTinUkraine_V3/FeatureServer/49/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryPolygon&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=' -O ./data/kml/geoconfimed-`date +"%Y.%m.%d-%H:%M:%S"`
        - name: Download-isw
-         run: wget 'https://www.google.com/maps/d/u/0/kml?mid=10YK14-QB25penu8jeS4hBVarzGKZsVgj&forcekml=1' -O ./data/kml/isw-`date +"%Y.%m.%d-%H:%M:%S"`
+         run: wget 'https://services5.arcgis.com/SaBe5HMtmnbqSWlu/ArcGIS/rest/services/VIEW_RussiaCoTinUkraine_V3/FeatureServer/49/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryPolygon&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=&returnGeometry=true&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pgeojson&token=' -O ./data/kml/isw-`date +"%Y.%m.%d-%H:%M:%S"`
+       - name: Download-geoconfimed
+         run: wget 'https://www.google.com/maps/d/u/0/kml?mid=10YK14-QB25penu8jeS4hBVarzGKZsVgj&forcekml=1' -O ./data/kml/geoconfirmed-`date +"%Y.%m.%d-%H:%M:%S"`
        - name: Commit results back
          uses: stefanzweifel/git-auto-commit-action@v4
          with:
