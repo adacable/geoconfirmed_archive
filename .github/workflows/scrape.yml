@@ -4,7 +4,6 @@ on:
     - cron:  '37 * * * *'
   workflow_dispatch:
 jobs:
-  checkout-code:
   scrape:
     runs-on: ubuntu-latest
     steps:
