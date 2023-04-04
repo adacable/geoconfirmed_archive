@@ -1,7 +1,6 @@
 name: Scraper
 on:
   schedule:
-    - cron:  '37 * * * *'
   workflow_dispatch:
 jobs:
   scrape:
